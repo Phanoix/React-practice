@@ -1,13 +1,13 @@
-.App {
+.MenuItem {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
+.MenuItem--cursor {
+  animation: MenuItem-cursor-spin infinite 20s linear;
   height: 40vmin;
 }
 
-.App-header {
+.MenuItem-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -18,11 +18,11 @@
   color: white;
 }
 
-.App-link {
+.MenuItem-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes MenuItem-cursor-spin {
   from {
     transform: rotate(0deg);
   }
