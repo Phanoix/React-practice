@@ -5,7 +5,7 @@ class MenuItem extends Component {
   render() {
     return (
       <div className="MenuItem">
-        
+        Text here from prop
       </div>
     );
   }
