@@ -1,5 +1,12 @@
 .MenuItem {
-  text-align: center;
+  text-align: left;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-left: solid transparent;
+}
+
+.MenuItem:hover {
+  border-left: solid #0ee4c0;
 }
 
 .MenuItem--cursor {
