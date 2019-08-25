@@ -7,7 +7,7 @@ class Grid extends Component {
     let list = [''];
     if (grid_matrix){
       list = grid_matrix.map((grid_row_matix) => 
-        <GridRow text={grid_row_matix.toString()} key={grid_row_matix.toString()}></GridRow>
+        <GridRow grid_row_matrix={grid_row_matix}></GridRow>
       )
     }
 

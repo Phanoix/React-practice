@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Menu from './components/Menu/Menu.js';
 import Grid from './components/Grid/Grid';
+import GridSquare from './components/Grid/GridSquare';
 
 class App extends Component {
   render() {
@@ -17,10 +18,10 @@ class App extends Component {
           </p>
           Menu :
           <Menu menu_items={menu_items}></Menu>
-        </header>
-        <main>
+          
+          Grid :
           <Grid grid_matrix={grid_matrix}></Grid>
-        </main>
+        </header>
       </div>
     );
   }
