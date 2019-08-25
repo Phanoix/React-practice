@@ -1,0 +1,10 @@
+.GridSquare {
+  text-align: center;
+  margin: 0;
+  border: 1px solid;
+}
+
+.GridSquare:hover {
+  border: 2px solid #0ee4c0c5;
+}
+

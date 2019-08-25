@@ -1,27 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Menu from './Menu';
+import Grid from './Grid';
 
 it('renders without crashing without items', () => {
 
   const div = document.createElement('div');
-  ReactDOM.render(<Menu />, div);
+  ReactDOM.render(<Grid />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
 it('renders without crashing with menu items', () => {
-  const menu_items = ["test", "test2", "test3"];
+  const grid_squares = ["test", "test2", "test3"];
 
   const div = document.createElement('div');
-  ReactDOM.render(<Menu menu_items={menu_items} />, div);
+  ReactDOM.render(<Grid grid_squares={grid_squares} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
-
 it('renders all menu items', () => {
-  const menu_items = ["test", "test2", "test3"];
+  const grid_squares = ["test", "test2", "test3"];
 
   const div = document.createElement('div');
-  ReactDOM.render(<Menu />, div);
+  ReactDOM.render(<Grid />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
