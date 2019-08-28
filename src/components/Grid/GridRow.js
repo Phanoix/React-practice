@@ -7,8 +7,8 @@ class GridRow extends Component {
   gridSquares(grid_row_matrix) {
     let list = [''];
     if (grid_row_matrix){
-      list = grid_row_matrix.map((grid_element) => 
-        <GridSquare text={grid_element.toString()}></GridSquare>
+      list = grid_row_matrix.map((grid_element, grid_element_index) => 
+        <GridSquare text={grid_element.toString()} key={[this.key, grid_element_index]}></GridSquare>
       )
     }
 
