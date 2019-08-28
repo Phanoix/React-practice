@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './Grid.css';
 import GridRow from './GridRow';
-import { isNumber } from 'util';
 
 class Grid extends Component {
   constructor(props){
     super(props);
     this.state = {
-      grid: props.grid_matrix
+      is_active: false,
+      grid: props.grid_matrix,
+      num_rows: props.grid_matrix.length,
+      num_cols: props.grid_matrix[0].length
     }
   }
 
@@ -23,28 +25,34 @@ class Grid extends Component {
   }
 
   render() {
-    const grid_matrix = this.state.grid;
     return (
       <div className="Grid">
-        {this.gridRows(grid_matrix)}
-        <button onClick={() => this.updateGrid()}>
+        {this.gridRows(this.state.grid)}
+        <button onClick={() => { this.setState({is_active: !this.state.is_active} ); if (!this.state.is_active) this.gameLoop(); } }>
         do stuff
         </button>
       </div>
     );
   }
 
-  updateGrid() {
-    
-    this.state.grid.forEach(row => {
-      row.forEach(element => {
-        if (isNumber(element)){
-          element++;
-        }
-      });
-    });
+  updateGrid( newGrid ) {
+    this.setState(
+      {
+        grid: newGrid
+      }
+    )
+  }
 
-    this.render();
+
+  nextStep(){
+    return [[Math.floor(Math.random() * 10), "", " "], [" ", "1", " "], [" ", "2", " "], [" ", " ", "a"]]
+  }
+
+  async gameLoop(){
+    await setTimeout(() => {
+      this.updateGrid(this.nextStep());
+      if (this.state.is_active) this.gameLoop();
+    }, 1000);
   }
 }
 
