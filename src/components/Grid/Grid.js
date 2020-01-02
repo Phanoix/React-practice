@@ -35,22 +35,16 @@ class Grid extends Component {
     );
   }
 
-  updateGrid( newGrid ) {
-    this.setState(
-      {
-        grid: newGrid
-      }
-    )
-  }
-
-
   nextStep(){
-    return [[Math.floor(Math.random() * 10), "", " "], [" ", "1", " "], [" ", "2", " "], [" ", " ", "a"]]
+    return [[Math.floor(Math.random() * 10), "", " "], [" ", "1", " "], [" ", "2", " "], [" ", " ", "a"], ["q", "w", "E"]];
   }
 
   async gameLoop(){
+    this.setState({
+       grid: this.nextStep()
+    });
+    
     await setTimeout(() => {
-      this.updateGrid(this.nextStep());
       if (this.state.is_active) this.gameLoop();
     }, 1000);
   }

@@ -6,23 +6,10 @@ import Grid from './components/Grid/Grid';
 
 class App extends Component {
 
-  updateGrindMatrix() {
-
-  }
-
-  gameLoop(){
-    let active = false;
-
-    while (active) {
-      this.updateGrindMatrix();
-    }
-  }
-
   render() {
 
     const menu_items = ["test", "test2", "test3"];
     var grid_matrix= [["", "", " "], [" ", "1", " "], [" ", "2", " "], [" ", " ", "a"]];
-    this.gameLoop();
     return (
       <div className="App">
         <header className="App-header">
@@ -38,7 +25,6 @@ class App extends Component {
       </div>
     );
   }
-
 }
 
 export default App;
