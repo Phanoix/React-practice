@@ -36,7 +36,12 @@ class Grid extends Component {
   }
 
   nextStep(){
-    return [[Math.floor(Math.random() * 10), "", " "], [" ", "1", " "], [" ", "2", " "], [" ", " ", "a"], ["q", "w", "E"]];
+    let Mapping = [];
+    Mapping[1] = -1;
+    Mapping[2] = -2;
+    Mapping['q'] = 4;
+
+    return this.generatePotentialMap([[Math.floor(Math.random() * 10), "", " "], [" ", "1", " "], [" ", "2", " "], [" ", " ", "a"], ["q", "w", "E"]], Mapping);
   }
 
   async gameLoop(){
@@ -48,6 +53,12 @@ class Grid extends Component {
       if (this.state.is_active) this.gameLoop();
     }, 1000);
   }
+  
+  generatePotentialMap( Grid, Mapping ){
+     let PMap = Grid.map( arr => Array.isArray(arr) ? arr.map(T => Mapping[T] ? Mapping[T] : 0) : Mapping[arr] );
+    return PMap;
+  }
+
 }
 
 export default Grid;
