@@ -9,7 +9,8 @@ class App extends Component {
   render() {
 
     const menu_items = ["test", "test2", "test3"];
-    var grid_matrix= [["", "", " "], [" ", "1", " "], [" ", "2", " "], [" ", " ", "a"]];
+    const test_map_1 = [["w", "x", "w"], ["w", "0", "w"], ["w", "0", "w"], ["w", "0", "w"], ["w", "1", "w"], ["w", "e", "w"]];
+    //var grid_matrix= [["", "", " "], [" ", "1", " "], [" ", "2", " "], [" ", " ", "a"]];
     return (
       <div className="App">
         <header className="App-header">
@@ -20,7 +21,7 @@ class App extends Component {
           <Menu menu_items={menu_items}></Menu>
 
           Grid :
-          <Grid grid_matrix={grid_matrix}></Grid>
+          <Grid grid_matrix={test_map_1}></Grid>
         </header>
       </div>
     );

@@ -36,12 +36,19 @@ class Grid extends Component {
   }
 
   nextStep(){
-    let Mapping = [];
-    Mapping[1] = -1;
-    Mapping[2] = -2;
-    Mapping['q'] = 4;
+    let mapping = [];
+    mapping['e'] = 100;
+    mapping['w'] = 100;
+    const p_impassible = this.generatePotentialMap( this.state.grid, mapping);
 
-    return this.generatePotentialMap([[Math.floor(Math.random() * 10), "", " "], [" ", "1", " "], [" ", "2", " "], [" ", " ", "a"], ["q", "w", "E"]], Mapping);
+    mapping = [];
+    mapping['e'] = 3;
+    mapping['x'] = -3;
+    let p_terrain = this.propagatePotentialMap( this.generatePotentialMap( this.state.grid, mapping) );
+
+    const p_final = p_impassible.map( (row, i) => row.map( (v, j) => v + p_terrain[i][j] ) );
+
+    return p_final;
   }
 
   async gameLoop(){
@@ -54,8 +61,18 @@ class Grid extends Component {
     }, 1000);
   }
   
-  generatePotentialMap( Grid, Mapping ){
-     let PMap = Grid.map( arr => Array.isArray(arr) ? arr.map(T => Mapping[T] ? Mapping[T] : 0) : Mapping[arr] );
+  generatePotentialMap( Grid, mapping ){
+     let PMap = Grid.map( arr => Array.isArray(arr) ? arr.map(T => mapping[T] ? mapping[T] : 0) : mapping[arr] );
+    return PMap;
+  }
+
+  propagatePotentialMap( pGrid ){
+     let PMap = pGrid.map( (arr, i, M) => arr.map( (v, j) => v 
+     + ( j > 0 ? Math.floor( 0.5 * arr[j-1] ) : 0  ) 
+     + ( j+1 < arr.length ? Math.floor( 0.5 * arr[j+1] ) : 0  )
+     + ( i > 0 ? Math.floor( 0.5 * M[i-1][j] ) : 0  )
+     + ( i+1 < M.length ? Math.floor( 0.5 * M[i+1][j] ) : 0  )
+     ) );
     return PMap;
   }
 
