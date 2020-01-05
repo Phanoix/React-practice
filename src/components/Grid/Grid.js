@@ -29,8 +29,8 @@ class Grid extends Component {
     return (
       <div className="Grid">
         {this.gridRows(this.state.grid)}
-        <button onClick={() => { this.setState({is_active: !this.state.is_active} ); if (!this.state.is_active) this.gameLoop(); } }>
-        do stuff
+        <button onClick={() => { if ( this.state.is_active !== 'done' ) this.setState({is_active: !this.state.is_active} ); if (!this.state.is_active) this.gameLoop(); } }>
+        { "Stuff: " + ( (this.state.is_active === 'done') ? "done!" : this.state.is_active ? "doing..." : "do" ) }
         </button>
       </div>
     );
@@ -80,12 +80,12 @@ class Grid extends Component {
         grid: new_grid
       });
     else{
-      this.setState({is_active: false});
+      this.setState({is_active: 'done'});
 
     }
     
     await setTimeout(() => {
-      if (this.state.is_active) this.gameLoop();
+      if (this.state.is_active === true) this.gameLoop();
     }, 1000);
   }
   

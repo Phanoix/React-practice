@@ -4,8 +4,8 @@ import './GridSquare.css';
 class GridSquare extends Component {
   render() {
     return (
-      <div className={"GridSquare " + this.getContextSensitiveClasses(this.props.text) } >
-        {this.props.text}
+      <div className={"GridSquare " + this.getContextSensitiveClasses(this.props.text) } title={this.props.text} >
+        
       </div>
     );
   }
