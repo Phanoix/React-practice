@@ -9,6 +9,26 @@
   float: left;
 }
 
+.Character {
+  background-color: #6DD2DA;
+}
+.CharacterPath {
+  background-color: #15A3A6;
+}
+
+.Wall {
+  background-color: #002D42;
+}
+.Floor {
+  background-color: #137991;
+}
+.Entrance {
+  background-color: #92AC66;
+}
+.Exit {
+  background-color: #92CC6F;
+}
+
 .GridSquare:hover {
   border: 1px solid #0ee4c0c5;
 }
