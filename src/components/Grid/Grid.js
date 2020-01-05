@@ -42,7 +42,7 @@ class Grid extends Component {
     let mapping = [];
     mapping['e'] = 100;
     mapping['w'] = 100;
-    mapping[1] = 1;
+    mapping[1] = 2;
     const p_impassible = this.generatePotentialMap( grid, mapping);
 
     mapping = [];

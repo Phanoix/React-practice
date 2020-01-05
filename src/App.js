@@ -9,8 +9,8 @@ class App extends Component {
   render() {
 
     const menu_items = ["test", "test2", "test3"];
-    const char_pos = [5, 1];
-    const test_map_1 = [["w", "w", "w"], ["w", "0", "w"], ["w", "0", "x"], ["w", "0", "w"], ["w", "0", "w"], ["w", "1", "w"], ["w", "e", "w"]];
+    const char_pos = [8, 2];
+    const test_map_1 = [["w", "w", "w", "w", "x"], ["w", "w", "w", "0", "w"], ["w", "0", "w", "0", "w"], ["w", "0", "w", "0", "w"], ["w", "0", "0", "w", "w"], ["w", "0", "0", "0", "w"], ["w", "0", "0", "w", "w"], ["w", "0", "0", "0", "w"], ["w", "0", "1", "0", "w"], ["w", "w", "e", "w", "x"]];
     //var grid_matrix= [["", "", " "], [" ", "1", " "], [" ", "2", " "], [" ", " ", "a"]];
     return (
       <div className="App">
